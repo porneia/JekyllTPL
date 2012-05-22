@@ -2,9 +2,21 @@
 layout: default
 title: JekyllTPL
 ---
-<h2>Articles</h2>
-  <ul>
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+<h2>Index</h2>
+
+<ul>
+  {% for post in site.posts %}
+    <li>{{ post.date | date_to_string }}: <a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+
+<h2>Content</h2>
+
+{% for post in site.posts %}
+<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+
+<p style="font-size:small">
+{{ post.date | date_to_string }}
+
+{{ post.content }}
+{% endfor %}
